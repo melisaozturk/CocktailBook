@@ -20,13 +20,13 @@ class _ListScreenState extends State<ListScreen> {
           itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-                leading: const Icon(Icons.list),
+                leading: const Icon(Icons.local_drink_sharp),
                 trailing: const Text(
-                  "İçerik Özet",
+                  "İçerik",
                   textAlign: TextAlign.start,
                   style: TextStyle(color: Colors.green, fontSize: 15),
                 ),
-                title: Text("Makale $index"));
+                title: Text("CocktailName $index"));
           },
         ),
       ),

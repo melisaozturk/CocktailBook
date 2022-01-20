@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projem/home.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
@@ -16,10 +18,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-     return const CupertinoApp(
-      title: 'Team Kraken',
+    return const CupertinoApp(
+      title: 'Cocktails',
       home: HomeScreen(),
     );
-
   }
 }

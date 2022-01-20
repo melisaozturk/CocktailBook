@@ -20,15 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text('TeamKraken'),
+        middle: Text('Cocktails'),
       ),
       child: CupertinoTabScaffold(
           tabBar: CupertinoTabBar(
             items: const [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.phone_iphone), label: 'MobileDevelopment'),
+                  icon: Icon(null), label: 'Cocktails'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: 'Design')
+                  icon: Icon(null), label: 'Popular Cocktails')
             ],
           ),
           tabBuilder: (BuildContext context, index) {
