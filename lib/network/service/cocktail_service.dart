@@ -15,7 +15,7 @@ abstract class CocktailService extends ChopperService {
 
   static CocktailService create() {
     final client = ChopperClient(
-      baseUrl: dotenv.env['BASE_URL']!,
+      baseUrl: dotenv.env['BASE_URL']!, // dotenv.get('BASE_URL', fallback: 'Base url can not found')
       services: [
         _$CocktailService(),
       ],

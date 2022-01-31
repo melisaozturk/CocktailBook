@@ -30,6 +30,7 @@ doc/api/
 .buildlog/
 .history
 .svn/
+*.env
 
 # IntelliJ related
 *.iml

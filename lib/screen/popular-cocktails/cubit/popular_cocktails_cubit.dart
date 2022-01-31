@@ -1,17 +1,19 @@
-import 'package:chopper/chopper.dart';
 import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_projem/network/model/response-model/drinks.dart';
 import 'package:flutter_projem/network/repository/coctail_repository.dart';
 
-part 'popular_cocktails_state.dart';
+part '../../../common/screen/state/base_drinks_state.dart';
 
 class PopularCocktailsCubit extends Cubit<BaseDrinksState> {
-  PopularCocktailsCubit(
-      {required BaseDrinksState initialState, required this.repository})
-      : super(initialState);
+  PopularCocktailsCubit()
+      : super(BaseDrinksState.initial());
+      //  {
+      //   fetchCocktails = FetchCocktails.byFormat(pageType);
+      // }
 
-  CoctailRepository repository;  
+//late FetchCocktails fetchCocktails;
+//PageType get pageType => state.pageType == PageType.list ? PageType.list : PageType.popular; 
 
   Future<void> getPopularCocktails() async {
     try {
@@ -24,5 +26,3 @@ class PopularCocktailsCubit extends Cubit<BaseDrinksState> {
     }
   }
 }
-
-// TODO: UI düzenle - istek at 
