@@ -1,9 +1,7 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_projem/screen/popular-cocktails/cubit/popular_cocktails_cubit.dart';
-import 'package:http/http.dart' as http;
+
 
 class ListScreen extends StatefulWidget {
   const ListScreen({Key? key}) : super(key: key);
@@ -42,7 +40,7 @@ class _ListScreenState extends State<ListScreen> {
                 itemCount: state.drinkList!.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                      leading: Image.network(state.drinkList![index].strDrinkThumb ?? ''),  //downloadImage(state.drinkList![index].strDrinkThumb ?? ''),
+                      leading: (state.drinkList![index].strDrinkThumb != null && state.drinkList![index].strDrinkThumb!.isNotEmpty) ? Image.network(state.drinkList![index].strDrinkThumb!) : const Icon(Icons.no_drinks_rounded), 
                       trailing: const Icon(Icons.arrow_forward),
                       title: Text(state.drinkList![index].strDrink ?? ''));
                 },
@@ -50,58 +48,5 @@ class _ListScreenState extends State<ListScreen> {
             }),
       ),
     );
-  }
-
-// Widget projectWidget() {
-//   return FutureBuilder(
-//     builder: (context, projectSnap) {
-//       if (projectSnap.connectionState == ConnectionState.none &&
-//           projectSnap.hasData == null) {
-//         //print('project snapshot data is: ${projectSnap.data}');
-//         return Container();
-//       }
-//       return ListView.builder(
-//         itemCount: projectSnap.data.length,
-//         itemBuilder: (context, index) {
-//           ProjectModel project = projectSnap.data[index];
-//           return Column(
-//             children: <Widget>[
-//               // Widget to display the list of project
-//             ],
-//           );
-//         },
-//       );
-//     },
-//     future: setImage(state.drinkList![index].strDrinkThumb ?? ''),
-//   );
-// }
-
-  // Future<Widget> setImage(String url) async {
-  //   String imageUrl = url;
-  //   Uint8List response =
-  //       await http.get(Uri.parse(imageUrl)).then((value) => value.bodyBytes);
-  //   return Image.memory(
-  //       response); //(downloadImage(state.drinkList![index].strDrinkThumb ?? ''));
-  // }
-
-  Widget downloadImage(String url) {
-    return FutureBuilder(
-      builder: (context, AsyncSnapshot snapshot) {
-         if (snapshot.connectionState == ConnectionState.none &&
-          snapshot.hasData == null) {
-        print('project snapshot data is: ${snapshot.data}');
-        return Container();
-      } 
-      print('project snapshot data is: ${snapshot.data}');
-        return Image.memory(snapshot.data);
-        
-      },
-      future: http.get(Uri.parse(url)).then((value) => value.bodyBytes),
-    );
-
-    //     String imageUrl = url;
-    // Uint8List response = await http.get(Uri.parse(imageUrl)).then(
-    // (value) => value.bodyBytes);
-    // return Image.memory(response);//(downloadImage(state.drinkList![index].strDrinkThumb ?? ''));
   }
 }
