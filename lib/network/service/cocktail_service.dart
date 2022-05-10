@@ -11,7 +11,9 @@ abstract class CocktailService extends ChopperService {
     'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
     'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
   })
-  Future<Response> getCocktails();
+  Future<Response> getCocktails(
+    @Query("filter.php?c") String c,
+  );
 
   static CocktailService create() {
     final client = ChopperClient(

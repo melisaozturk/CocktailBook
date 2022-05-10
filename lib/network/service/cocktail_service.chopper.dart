@@ -17,14 +17,16 @@ class _$CocktailService extends CocktailService {
   final definitionType = CocktailService;
 
   @override
-  Future<Response<dynamic>> getCocktails() {
+  Future<Response<dynamic>> getCocktails(String c) {
     final $url = '/popular.php';
+    final $params = <String, dynamic>{'filter.php?c': c};
     final $headers = {
       'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
       'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e',
     };
 
-    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    final $request = Request('GET', $url, client.baseUrl,
+        parameters: $params, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 }

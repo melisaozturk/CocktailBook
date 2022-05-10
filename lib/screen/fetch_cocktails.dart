@@ -9,7 +9,7 @@ abstract class FetchCocktails {
   factory FetchCocktails.byFormat(PageType pageType) {
     switch (pageType) {
       case PageType.list:
-        return FetchPopularList();
+        return FetchList();
         case PageType.popular:
         return FetchPopularList();
       default:
@@ -21,9 +21,9 @@ abstract class FetchCocktails {
 class FetchPopularList extends FetchCocktails {
   FetchPopularList();
 
- Future<void> fetchPopularCocktails() async {
+ Future<void> fetchPopularCocktails(String filterParameter) async {
     try {
-      final response = await CoctailRepository().getCoctailList();
+      final response = await CoctailRepository().getCoctailList(filterParameter);
       CocktailsDTO(drinkList: response!.drinks);
      // emit(state.copyWith(
        //   statusType: StatusType.success, drinkList: response!.drinks));
@@ -34,6 +34,22 @@ class FetchPopularList extends FetchCocktails {
     }
   }
   }
+  class FetchList extends FetchCocktails {
+  FetchList();
+
+  Future<void> fetchAllCocktails(String filterParameter) async {
+    try {
+      final response = await CoctailRepository().getCoctailList(filterParameter);
+      CocktailsDTO(drinkList: response!.drinks);
+      // emit(state.copyWith(
+      //   statusType: StatusType.success, drinkList: response!.drinks));
+    } catch (_) {
+      CocktailsDTO(drinkList: null);
+      //  emit(state.copyWith(statusType: StatusType.failure, drinkList: null));
+      throw Exception("Response Fail");
+    }
+  }
+}
 
   class CocktailsDTO {
     CocktailsDTO({this.drinkList});

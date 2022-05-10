@@ -6,8 +6,8 @@ class CoctailRepository {
   CoctailRepository({apiService})
       : service = apiService ?? CocktailService.create();
 
-  Future<BaseResponseModel>? getCoctailList() async {
-    final response = await service!.getCocktails();
+  Future<BaseResponseModel>? getCoctailList(String filter) async {
+    final response = await service!.getCocktails(filter);
 
     if (response.statusCode == 200) {
       return BaseResponseModel.fromJson(response.body);
