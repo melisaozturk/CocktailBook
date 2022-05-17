@@ -71,108 +71,108 @@ class _CocktailDetailScreenState extends State<CocktailDetailScreen> {
                     padding: EdgeInsets.only(left: 8),
                     child: Text('Ingredients:'),
                   ),
-                  if (state.drink![0].strIngredient1 != null)
+                  if (state.drink![0].strIngredient1 != null && state.drink![0].strIngredient1!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure1 == null
+                      child: (state.drink![0].strMeasure1 == null || state.drink![0].strMeasure1!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient1}')
                           : Text('- ${state.drink![0].strIngredient1} ( ${state.drink![0].strMeasure1} )'),
                     ),
-                  if (state.drink![0].strIngredient2 != null)
+                  if (state.drink![0].strIngredient2 != null && state.drink![0].strIngredient2!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure2 == null
+                      child: (state.drink![0].strMeasure2 == null || state.drink![0].strMeasure2!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient2}')
                           : Text('- ${state.drink![0].strIngredient2} ( ${state.drink![0].strMeasure2} )'),
                     ),
-                  if (state.drink![0].strIngredient3 != null)
+                  if (state.drink![0].strIngredient3 != null && state.drink![0].strIngredient3!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure3 == null
+                      child: (state.drink![0].strMeasure3 == null || state.drink![0].strIngredient3!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient3}')
                           : Text('- ${state.drink![0].strIngredient3} ( ${state.drink![0].strMeasure3} )'),
                     ),
-                  if (state.drink![0].strIngredient4 != null)
+                  if (state.drink![0].strIngredient4 != null && state.drink![0].strIngredient4!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure4 == null
+                      child: (state.drink![0].strMeasure4 == null || state.drink![0].strMeasure4!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient4}')
                           : Text('- ${state.drink![0].strIngredient4} ( ${state.drink![0].strMeasure4} )'),
                     ),
-                  if (state.drink![0].strIngredient5 != null)
+                  if (state.drink![0].strIngredient5 != null &&  state.drink![0].strIngredient5!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure5 == null
+                      child: (state.drink![0].strMeasure5 == null || state.drink![0].strMeasure5!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient5}')
                           : Text('- ${state.drink![0].strIngredient5} ( ${state.drink![0].strMeasure5} )'),
                     ),
-                  if (state.drink![0].strIngredient6 != null)
+                  if (state.drink![0].strIngredient6 != null && state.drink![0].strIngredient6!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure6 == null
+                      child: (state.drink![0].strMeasure6 == null || state.drink![0].strIngredient6!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient6}')
                           : Text('- ${state.drink![0].strIngredient6} ( ${state.drink![0].strMeasure6} )'),
                     ),
-                  if (state.drink![0].strIngredient7 != null)
+                  if (state.drink![0].strIngredient7 != null && state.drink![0].strIngredient7!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure7 == null
+                      child: (state.drink![0].strMeasure7 == null || state.drink![0].strMeasure7!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient7}')
                           : Text('- ${state.drink![0].strIngredient7} ( ${state.drink![0].strMeasure7} )'),
                     ),
-                  if (state.drink![0].strIngredient8 != null)
+                  if (state.drink![0].strIngredient8 != null && state.drink![0].strIngredient8!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure8 == null
+                      child: (state.drink![0].strMeasure8 == null || state.drink![0].strMeasure8!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient8}')
                           : Text('- ${state.drink![0].strIngredient8} ( ${state.drink![0].strMeasure8} )'),
                     ),
-                  if (state.drink![0].strIngredient9 != null)
+                  if (state.drink![0].strIngredient9 != null && state.drink![0].strIngredient9!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure9 == null
+                      child: (state.drink![0].strMeasure9 == null || state.drink![0].strMeasure9!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient9}')
                           : Text('- ${state.drink![0].strIngredient9} ( ${state.drink![0].strMeasure9} )'),
                     ),
-                  if (state.drink![0].strIngredient10 != null)
+                  if (state.drink![0].strIngredient10 != null && state.drink![0].strIngredient10!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure10 == null
+                      child: (state.drink![0].strMeasure10 == null || state.drink![0].strMeasure10!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient10}')
                           : Text('- ${state.drink![0].strIngredient10} ( ${state.drink![0].strMeasure10} )'),
                     ),
-                  if (state.drink![0].strIngredient11 != null)
+                  if (state.drink![0].strIngredient11 != null && state.drink![0].strIngredient11!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure11 == null
+                      child: (state.drink![0].strMeasure11 == null ||  state.drink![0].strMeasure11!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient11}')
                           : Text('- ${state.drink![0].strIngredient11} ( ${state.drink![0].strMeasure11} )'),
                     ),
-                  if (state.drink![0].strIngredient12 != null)
+                  if (state.drink![0].strIngredient12 != null && state.drink![0].strIngredient12!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure12 == null
+                      child: (state.drink![0].strMeasure12 == null || state.drink![0].strMeasure12!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient12}')
                           : Text('- ${state.drink![0].strIngredient12} ( ${state.drink![0].strMeasure12} )'),
                     ),
-                  if (state.drink![0].strIngredient13 != null)
+                  if (state.drink![0].strIngredient13 != null && state.drink![0].strIngredient13!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure13 == null
+                      child: (state.drink![0].strMeasure13 == null || state.drink![0].strMeasure13!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient13}')
                           : Text('- ${state.drink![0].strIngredient13} ( ${state.drink![0].strMeasure13} )'),
                     ),
-                  if (state.drink![0].strIngredient14 != null)
+                  if (state.drink![0].strIngredient14 != null && state.drink![0].strIngredient14!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure14 == null
+                      child: (state.drink![0].strMeasure14 == null || state.drink![0].strMeasure14!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient14}')
                           : Text('- ${state.drink![0].strIngredient14} ( ${state.drink![0].strMeasure14} )'),
                     ),
-                  if (state.drink![0].strIngredient15 != null)
+                  if (state.drink![0].strIngredient15 != null && state.drink![0].strIngredient15!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.all(8),
-                      child: state.drink![0].strMeasure15 == null
+                      child: (state.drink![0].strMeasure15 == null || state.drink![0].strMeasure15!.isEmpty)
                           ? Text('- ${state.drink![0].strIngredient15}')
                           : Text('- ${state.drink![0].strIngredient15} ( ${state.drink![0].strMeasure15} )'),
                     ),
