@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'drinks.g.dart';
 
 @JsonSerializable()
-class Drinks {
+class Drinks {  
   Drinks({
     this.idDrink,
     this.strDrink,

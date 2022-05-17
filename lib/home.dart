@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _allCocktailsCubit = AllCocktailsCubit();
     _allCocktailsCubit.getCocktails('');
-    
+
     _popularCocktailsCubit = PopularCocktailsCubit();
     _popularCocktailsCubit.getPopularCocktails('');
   }
@@ -30,32 +30,33 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text('Cocktails'),
-        ),
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider.value(value: _allCocktailsCubit),
-            BlocProvider.value(value: _popularCocktailsCubit),
-          ],
-          child: CupertinoTabScaffold(
-            tabBar: CupertinoTabBar(
-              items: const [
-                BottomNavigationBarItem(icon: Icon(null), label: 'Cocktails'),
-                BottomNavigationBarItem(icon: Icon(null), label: 'Popular Cocktails')
-              ],
-            ),
-            tabBuilder: (BuildContext context, index) {
-              switch (index) {
-                case 0:
-                  return PopularCocktailsListScreen(popularCocktailsCubit: _popularCocktailsCubit);
-                case 1:
-                  return AllCocktailsListScreen(allCocktailsCubit: _allCocktailsCubit);
-                default:
-                  return PopularCocktailsListScreen(popularCocktailsCubit: _popularCocktailsCubit);
-              }
-            },
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Cocktails'),
+      ),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: _allCocktailsCubit),
+          BlocProvider.value(value: _popularCocktailsCubit),
+        ],
+        child: CupertinoTabScaffold(
+          tabBar: CupertinoTabBar(
+            items: const [
+              BottomNavigationBarItem(icon: Icon(null), label: 'Popular Cocktails'),
+              BottomNavigationBarItem(icon: Icon(null), label: 'Latest Cocktails')
+            ],
           ),
-        ));
+          tabBuilder: (BuildContext context, index) {
+            switch (index) {
+              case 0:
+                return PopularCocktailsListScreen(popularCocktailsCubit: _popularCocktailsCubit);
+              case 1:
+                return AllCocktailsListScreen(allCocktailsCubit: _allCocktailsCubit);
+              default:
+                return PopularCocktailsListScreen(popularCocktailsCubit: _popularCocktailsCubit);
+            }
+          },
+        ),
+      ),
+    );
   }
 }

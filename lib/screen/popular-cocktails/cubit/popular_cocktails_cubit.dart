@@ -1,23 +1,17 @@
-import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_projem/network/model/response-model/drinks.dart';
-import 'package:flutter_projem/network/repository/coctail_repository.dart';
+import 'package:flutter_projem/network/repository/cocktail_repository.dart';
 
-part '../../../screen/popular-cocktails/cubit/popular_cocktails_state.dart';
+part 'popular_cocktails_state.dart';
 
 class PopularCocktailsCubit extends Cubit<PopularCocktailsState> {
-  PopularCocktailsCubit() : super(PopularCocktailsState.initial());
-  //  {
-  //   fetchCocktails = FetchCocktails.byFormat(pageType);
-  // }
-
-//late FetchCocktails fetchCocktails;
-//PageType get pageType => state.pageType == PageType.list ? PageType.list : PageType.popular;
+  PopularCocktailsCubit() : super(const PopularCocktailsState.initial());
 
   Future<void> getPopularCocktails(String filterParameter) async {
     try {
-      final response = await CoctailRepository().getCoctailList(filterParameter);
-      emit(state.copyWith(statusType: StatusType.success, drinkList: response!.drinks));
+      final response = await CocktailRepository().getPopularCocktails(filterParameter);
+      emit(state.copyWith(statusType: StatusType.success, drinkList: response!.drinks ?? []));
     } catch (_) {
       emit(state.copyWith(statusType: StatusType.failure, drinkList: null));
       throw Exception("Response Fail");

@@ -17,9 +17,35 @@ class _$CocktailService extends CocktailService {
   final definitionType = CocktailService;
 
   @override
-  Future<Response<dynamic>> getCocktails(String c) {
+  Future<Response<dynamic>> getPopularCocktails(String c) {
     final $url = '/popular.php';
     final $params = <String, dynamic>{'filter.php?c': c};
+    final $headers = {
+      'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
+      'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e',
+    };
+
+    final $request = Request('GET', $url, client.baseUrl,
+        parameters: $params, headers: $headers);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> getLatestCocktails() {
+    final $url = '/latest.php';
+    final $headers = {
+      'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
+      'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e',
+    };
+
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> getCocktailIngredients(String i) {
+    final $url = '/lookup.php';
+    final $params = <String, dynamic>{'i': i};
     final $headers = {
       'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
       'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e',

@@ -24,7 +24,7 @@ class _PopularCocktailsListScreenState extends State<PopularCocktailsListScreen>
     return BlocBuilder<PopularCocktailsCubit, PopularCocktailsState>(
       builder: (context, state) {
         if (state.drinkList != null && state.drinkList!.isNotEmpty) {
-          return CocktailsListScreen(drinkList: state.drinkList ?? []);
+          return CocktailsListScreen(drinkList: state.drinkList!);
         }
         return const SizedBox();
       },
