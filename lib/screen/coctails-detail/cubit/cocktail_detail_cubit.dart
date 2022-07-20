@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_projem/network/model/response-model/drinks.dart';
 import 'package:flutter_projem/network/repository/cocktail_repository.dart';
+import 'package:flutter_projem/screen/cocktails/cubit/cocktails_bloc.dart';
 
 part 'cocktail_detail_state.dart';
 

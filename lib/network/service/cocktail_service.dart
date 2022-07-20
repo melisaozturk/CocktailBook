@@ -11,22 +11,27 @@ abstract class CocktailService extends ChopperService {
     'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
     'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
   })
-  Future<Response> getPopularCocktails(
-    @Query("filter.php?c") String c,
-  );
+  Future<Response> getPopularCocktails();
 
   @Get(path: "/latest.php", headers: {
     'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
     'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
   })
-  Future<Response> getLatestCocktails(
-  );
+  Future<Response> getLatestCocktails();
 
   @Get(path: "/lookup.php", headers: {
     'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
     'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
   })
   Future<Response> getCocktailIngredients(
+    @Query("i") String i,
+  );
+
+  @Get(path: "/filter.php", headers: {
+    'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
+    'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
+  })
+  Future<Response> getCocktailsbyIngredients(
     @Query("i") String i,
   );
 

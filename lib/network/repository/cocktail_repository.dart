@@ -15,8 +15,8 @@ class CocktailRepository {
     }
   }
 
-  Future<BaseResponseModel>? getPopularCocktails(String filter) async {
-    final response = await service!.getPopularCocktails(filter);
+  Future<BaseResponseModel>? getPopularCocktails() async {
+    final response = await service!.getPopularCocktails();
 
     if (response.statusCode == 200) {
       return BaseResponseModel.fromJson(response.body);
@@ -27,6 +27,16 @@ class CocktailRepository {
 
   Future<BaseResponseModel>? getCocktailIngredient(String id) async {
     final response = await service!.getCocktailIngredients(id);
+
+    if (response.statusCode == 200) {
+      return BaseResponseModel.fromJson(response.body);
+    } else {
+      throw Exception("Request Failed");
+    }
+  }
+
+  Future<BaseResponseModel>? getCocktailsbyIngredient(String searchText) async {
+    final response = await service!.getCocktailsbyIngredients(searchText);
 
     if (response.statusCode == 200) {
       return BaseResponseModel.fromJson(response.body);

@@ -1,6 +1,6 @@
 part of 'cocktail_detail_cubit.dart';
 
-enum StatusType { loading, success, failure }
+//todo silenum StatusType { loading, success, failure }
 
 class CocktailDetailState extends Equatable {
   const CocktailDetailState._({
