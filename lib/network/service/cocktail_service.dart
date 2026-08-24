@@ -7,36 +7,47 @@ part 'cocktail_service.chopper.dart';
 
 @ChopperApi()
 abstract class CocktailService extends ChopperService {
-  @Get(path: "/popular.php", headers: {
-    'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
-    'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
-  })
+  @Get(path: "/popular.php")
   Future<Response> getPopularCocktails(
     @Query("filter.php?c") String c,
   );
 
-  @Get(path: "/latest.php", headers: {
-    'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
-    'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
-  })
-  Future<Response> getLatestCocktails(
-  );
+  @Get(path: "/latest.php")
+  Future<Response> getLatestCocktails();
 
-  @Get(path: "/lookup.php", headers: {
-    'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
-    'x-rapidapi-key': '50a99c8713mshb2c7bbbb30c134cp168a3bjsnaf15fb5b918e'
-  })
+  @Get(path: "/lookup.php")
   Future<Response> getCocktailIngredients(
     @Query("i") String i,
   );
 
   static CocktailService create() {
+    final baseUrl = dotenv.env['BASE_URL'];
+    if (baseUrl == null || baseUrl.isEmpty) {
+      throw Exception('BASE_URL is not set in .env file');
+    }
+    
     final client = ChopperClient(
-      baseUrl: dotenv.env['BASE_URL']!, // todo dotenv.get('BASE_URL', fallback: 'Base url can not found')
+      baseUrl: baseUrl, // todo dotenv.get('BASE_URL', fallback: 'Base url can not found')
       services: [
         _$CocktailService(),
       ],
       converter: const JsonConverter(),
+      interceptors: [
+        (Request request) async {
+          final apiKey = dotenv.env['API_KEY'];
+          if (apiKey == null || apiKey.isEmpty) {
+            throw Exception('API_KEY is not set in .env file');
+          }
+          
+          return request.copyWith(
+            headers: {
+              ...request.headers,
+              'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
+              'x-rapidapi-key': apiKey,
+            },
+          );
+        },
+      ],  
     );
     return _$CocktailService(client);
   }
